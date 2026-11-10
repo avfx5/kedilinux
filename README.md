@@ -1,4 +1,6 @@
-![Kedi GNU/Linux](static/kedi-logo.png)
+<<<<<<< HEAD
+![Kedi GNU/Linux](static/kedi-logo-white.png)
+>>>>>>> 5474ebe (Fix logo, again...)
 
  Kedi GNU/Linux paket tarifleri: OpenRC tabanlı bir Pisi Linux çatalı
 
