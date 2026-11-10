@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>lightdm-openrc</Name>
+        <Homepage>https://github.com/ubuntu/lightdm</Homepage>
+        <Packager>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>service</IsA>
+        <Summary>Artix Linux init.d script for OpenRC</Summary>
+        <Description>Init.d script required to launch the LightDM display manager for OpenRC</Description>
+        <Archive sha1sum="a5089e702c1a243233ce32393c4f97af52181142" type="binary">https://repo.kedilinux.org/init.d/lightdm</Archive>
+    </Source>
+    <Package>
+        <Name>lightdm-openrc</Name>
+        <RuntimeDependencies>
+            <Dependency>lightdm</Dependency>
+            <Dependency>openrc</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/init.d</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2026-11-08</Date>
+            <Version>1.32.0</Version>
+            <Comment>First release, for Kedi Linux</Comment>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Update>
+    </History>
+</PISI>

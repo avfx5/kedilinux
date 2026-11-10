@@ -1,0 +1,22 @@
+#!/sbin/openrc-run
+# Copyright 2026 Lemi Sander
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+description="Rebuild /etc/profile.env from /etc/env.d"
+
+depend() {
+        need localmount
+}
+
+start() {
+        local f
+        for f in /etc/env.d /etc/env.d/*; do
+                if [ "$f" -nt /etc/profile.env ]; then
+                        ebegin "Updating environment from /etc/env.d"
+                        /sbin/update-environment
+                        eend $?
+                        return
+                fi
+        done
+        return 0
+}

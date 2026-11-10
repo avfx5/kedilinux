@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>sddm-openrc</Name>
+        <Homepage>https://github.com/sddm/sddm</Homepage>
+        <Packager>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>service</IsA>
+        <Summary>OpenRC Init script for SDDM</Summary>
+        <Description>sddm-openrc enables OpenRC to run the sddm display manager at system boot, and supervise it during the session</Description>
+        <Archive sha1sum="aad6c9bd2549a4749e486f5b1546676bd6b8939d" type="binary">https://repo.kedilinux.org/init.d/sddm</Archive>
+    </Source>
+    <Package>
+        <Name>sddm-openrc</Name>
+        <RuntimeDependencies>
+            <Dependency>sddm</Dependency>
+            <Dependency>openrc</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/init.d</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2026-11-09</Date>
+            <Version>0.21.0</Version>
+            <Comment>First release</Comment>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>openrc</Name>
+        <Homepage>https://github.com/OpenRC/openrc</Homepage>
+        <Packager>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Packager>
+        <License>BSD-2-Clause</License>
+        <IsA>app:console</IsA>
+        <IsA>library</IsA>
+        <Icon>library</Icon>
+        <Summary>OpenRC is a dependency-based init system</Summary>
+        <Description>OpenRC is a dependency-based init system. In Kedi Linux it also runs as PID 1: /sbin/init is openrc-init, which starts the services at boot and stops them at shutdown.</Description>
+        <Archive sha1sum="41315ad2d494a9f34c8d732b2315fb2b2ee5b66e" type="targz">https://github.com/OpenRC/openrc/archive/refs/tags/0.64.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>meson</Dependency>
+            <Dependency>ninja</Dependency>
+            <Dependency>libcap-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+    <Package>
+        <Name>openrc</Name>
+        <RuntimeDependencies>
+            <Dependency>libcap</Dependency>
+            <Dependency>kbd</Dependency>
+            <Dependency>kmod</Dependency>
+            <Dependency>util-linux</Dependency>
+            <Dependency>procps</Dependency>
+            <Dependency>e2fsprogs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/sbin</Path>
+            <Path fileType="executable">/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="library">/usr/libexec/rc</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="data">/usr/share/openrc</Path>
+            <Path fileType="data">/usr/share/bash-completion</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <Replaces>
+            <Package>sysvinit</Package>
+            <Package>mudur</Package>
+        </Replaces>
+    </Package>
+    <Package>
+        <Name>openrc-devel</Name>
+        <PartOf>system.devel</PartOf>
+        <Summary>Development files for openrc</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">openrc</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib/pkgconfig</Path>
+            <Path fileType="man">/usr/share/man/man3</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2026-11-07</Date>
+            <Version>0.64.1</Version>
+            <Comment>First release, for Kedi Linux.</Comment>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Update>
+    </History>
+</PISI>

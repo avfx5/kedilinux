@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>envupdate</Name>
+        <Homepage>https://github.com/PisiLinuxNew/mudur</Homepage>
+        <Packager>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Updates environment</Summary>
+        <Description>Updates environment variables for packages that add them</Description>
+        <Archive name="envupdate" sha1sum="947b137a2bd19af05ce4475ce237b09f01dc5290" type="binary">https://raw.githubusercontent.com/PisiLinuxNew/mudur/ff30e441568f113cf3ca5f35d37e122d81df3aca/bin/update-environment.py</Archive>
+    </Source>
+    <Package>
+        <Name>envupdate</Name>
+        <RuntimeDependencies>
+            <Dependency>python</Dependency>
+            <Dependency>openrc</Dependency>
+        </RuntimeDependencies>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0755" target="/etc/init.d/envupdate">envupdate</AdditionalFile>
+        </AdditionalFiles>
+        <Files>
+            <Path fileType="executable">/sbin</Path>
+            <Path fileType="config">/etc/init.d</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2026-11-07</Date>
+            <Version>4.4.0</Version>
+            <Comment>First release, for Kedi Linux</Comment>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Update>
+    </History>
+</PISI>

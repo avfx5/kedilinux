@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>udev-openrc</Name>
+        <Homepage>https://packages.gentoo.org/packages/sys-fs/udev-init-scripts</Homepage>
+        <Packager>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>service</IsA>
+        <Summary>Gentoo init.d, conf.d scripts for OpenRC</Summary>
+        <Description>Init.d and conf.d scripts required to launch udev for OpenRC</Description>
+        <Archive sha1sum="398002def0c9cc6eb7cb5dd2966966ab110c4c5c" type="targz">https://distfiles.gentoo.org/distfiles/8a/udev-init-scripts-35.tar.gz</Archive>
+    </Source>
+    <Package>
+        <Name>udev-openrc</Name>
+        <RuntimeDependencies>
+            <Dependency>openrc</Dependency>
+            <Dependency>eudev</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/init.d</Path>
+            <Path fileType="config">/etc/conf.d</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2026-11-08</Date>
+            <Version>35</Version>
+            <Comment>First release, for Kedi Linux</Comment>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Update>
+    </History>
+</PISI>

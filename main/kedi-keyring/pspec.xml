@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kedi-keyring</Name>
+        <Homepage>https://repo.kedilinux.org</Homepage>
+        <Packager>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>data</IsA>
+        <Summary>Repository keyring for Kedi Linux</Summary>
+        <Description>This keyring enables proper verifying on repo.kedilinux.org</Description>
+        <Archive sha1sum="0cf56caeec2a8cd53158c93484ed53c21e98b478" type="binary">https://repo.kedilinux.org/kedi.asc</Archive>
+    </Source>
+    <Package>
+        <Name>kedi-keyring</Name>
+        <RuntimeDependencies>
+            <Dependency>gnupg</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/share/kedi</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+    <History>
+        <Update release="2">
+            <Date>2026-11-09</Date>
+            <Version>20261109</Version>
+            <Comment>Fix gpg trust, removes warning when installing the new keyring</Comment>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2026-11-09</Date>
+            <Version>20261109</Version>
+            <Comment>First release, for Kedi Linux</Comment>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Update>
+    </History>
+</PISI>

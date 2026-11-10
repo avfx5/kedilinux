@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>dbus-openrc</Name>
+        <Homepage>https://www.freedesktop.org/wiki/Software/dbus/</Homepage>
+        <Packager>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Packager>
+        <License>AFLv2.1</License>
+        <License>GPLv2</License>
+        <IsA>service</IsA>
+        <Icon>system-run</Icon>
+        <Summary>OpenRC Init script for D-Bus</Summary>
+        <Description>dbus-openrc enables OpenRC to run D-Bus at system boot, and supervise it during the session</Description>
+        <Archive sha1sum="46ca73c29d9b8eeaf42a6d3714b995ac110a9b97" type="binary">https://repo.kedilinux.org/init.d/dbus</Archive>
+    </Source>
+    <Package>
+        <Name>dbus-openrc</Name>
+        <RuntimeDependencies>
+            <Dependency>openrc</Dependency>
+            <Dependency>dbus</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/init.d</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2026-11-06</Date>
+            <Version>1.16.2</Version>
+            <Comment>First release</Comment>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Update>
+    </History>
+</PISI>

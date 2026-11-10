@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>elogind-openrc</Name>
+        <Homepage>https://packages.gentoo.org/packages/sys-auth/elogind</Homepage>
+        <Packager>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>service</IsA>
+        <Summary>Gentoo init.d script for OpenRC</Summary>
+        <Description>Init.d script required to launch the elogind login daemon for OpenRC</Description>
+        <Archive sha1sum="37cb3584a5f56597e26651295f39a2fa5d9d9fef" type="binary">https://raw.githubusercontent.com/gentoo/gentoo/095e98fefa5d6e9072a57f69cd6df53e079effcf/sys-auth/elogind/files/elogind.init-r1</Archive>
+    </Source>
+    <Package>
+        <Name>elogind-openrc</Name>
+        <RuntimeDependencies>
+            <Dependency>elogind</Dependency>
+            <Dependency>openrc</Dependency>
+            <Dependency>dbus-openrc</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/init.d</Path>
+            <Path fileType="config">/etc/conf.d</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/etc/conf.d/elogind">elogind</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2026-11-08</Date>
+            <Version>257.16</Version>
+            <Comment>First release, for Kedi Linux</Comment>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Update>
+    </History>
+</PISI>

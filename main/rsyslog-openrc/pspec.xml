@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>rsyslog-openrc</Name>
+        <Homepage>https://packages.gentoo.org/packages/app-admin/rsyslog</Homepage>
+        <Packager>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>service</IsA>
+        <Summary>Gentoo init.d script for OpenRC</Summary>
+        <Description>Init.d script required to launch the rsyslogd multi-threaded system logger for OpenRC</Description>
+        <Archive sha1sum="932864de6e5af39cb70968b8fa8abd0493f2256b" type="binary">https://repo.kedilinux.org/init.d/rsyslog</Archive>
+    </Source>
+    <Package>
+        <Name>rsyslog-openrc</Name>
+        <RuntimeDependencies>
+            <Dependency>rsyslog</Dependency>
+            <Dependency>openrc</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/init.d</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2026-11-08</Date>
+            <Version>8.2008.0</Version>
+            <Comment>First release, for Kedi Linux</Comment>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Update>
+    </History>
+</PISI>

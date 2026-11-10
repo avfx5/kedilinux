@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kedi-base</Name>
+        <Homepage>https://repo.kedilinux.org</Homepage>
+        <Packager>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <IsA>data</IsA>
+        <Summary>kedi-base contains required files and setup for a Kedi Linux system</Summary>
+        <Description>kedi-base contains required files and setup for a Kedi Linux system. It is automatically installed on a graphical installation, but must be install manually otherwise.</Description>
+        <Archive sha1sum="fa789b906badf84c991fca6cc1b41333d6d648cb" type="targz">https://repo.kedilinux.org/src/kedi-base-1.tar.gz</Archive>
+    </Source>
+    <Package>
+        <Name>kedi-base</Name>
+        <RuntimeDependencies>
+            <Dependency>systemd-tmpfiles</Dependency>
+            <Dependency>kedi-keyring</Dependency>
+            <Dependency>openrc</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2026-11-10</Date>
+            <Version>1</Version>
+            <Comment>First release, for Kedi Linux</Comment>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Update>
+    </History>
+</PISI>

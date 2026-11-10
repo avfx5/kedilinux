@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>vixie-cron-openrc</Name>
+        <Homepage>https://github.com/vixie/cron</Homepage>
+        <Packager>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>service</IsA>
+        <Summary>Gentoo init.d script for OpenRC</Summary>
+        <Description>Init.d script required to launch the vixie-cron cron service for OpenRC</Description>
+        <Archive sha1sum="be82d008154528bab062038dff89d7885d256131" type="binary">https://repo.kedilinux.org/init.d/vixie-cron</Archive>
+    </Source>
+    <Package>
+        <Name>vixie-cron-openrc</Name>
+        <RuntimeDependencies>
+            <Dependency>vixie-cron</Dependency>
+            <Dependency>openrc</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/init.d</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2026-11-08</Date>
+            <Version>4.1</Version>
+            <Comment>First release, for Kedi Linux</Comment>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Update>
+    </History>
+</PISI>

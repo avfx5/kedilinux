@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kmod-openrc</Name>
+        <Homepage>https://packages.gentoo.org/packages/sys-apps/kmod</Homepage>
+        <Packager>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>service</IsA>
+        <Summary>Gentoo init.d script for OpenRC</Summary>
+        <Description>Init.d script required to create a list of required static device nodes for the current kernel</Description>
+        <Archive sha1sum="7ee6257230171591da3c12504f6ca4e2ba7e89bd" type="binary">https://raw.githubusercontent.com/gentoo/gentoo/2b5724dadc47cfc020d38b70a384b3f557f6e6d8/sys-apps/kmod/files/kmod-static-nodes-r1</Archive>
+    </Source>
+    <Package>
+        <Name>kmod-openrc</Name>
+        <RuntimeDependencies>
+            <Dependency>kmod</Dependency>
+            <Dependency>openrc</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/init.d</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2026-11-08</Date>
+            <Version>34.2</Version>
+            <Comment>First release, for Kedi Linux</Comment>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Update>
+    </History>
+</PISI>
