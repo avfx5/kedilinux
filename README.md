@@ -1,4 +1,4 @@
-# Kedi GNU/Linux
+#![Kedi GNU/Linux](static/kedi-logo.png)
 
  Kedi GNU/Linux paket tarifleri: OpenRC tabanlı bir Pisi Linux çatalı
 
