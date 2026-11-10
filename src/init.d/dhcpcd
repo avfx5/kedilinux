@@ -1,0 +1,18 @@
+#!/sbin/openrc-run
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+name="DHCP Client Daemon"
+description="DHCP Client Daemon"
+command=/usr/bin/dhcpcd
+#pidfile=/run/pid
+supervisor="supervise-daemon"
+command_args_foreground="--nobackground"
+command_args=-q
+
+depend () {
+    provide net
+    need localmount
+    use network
+    before dns
+    after logger
+}

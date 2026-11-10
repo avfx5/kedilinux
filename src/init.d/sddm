@@ -1,0 +1,17 @@
+#!/sbin/openrc-run
+
+command="/usr/bin/sddm"
+pidfile="/run/${RC_SVCNAME}.pid"
+command_background=true
+
+depend() {
+    need localmount
+
+    after bootmisc consolefont modules netmount
+    after ypbind autofs openvpn gpm lircmd
+    after quota keymaps
+    before alsasound
+    want elogind
+    use xfs
+    provide xdm display-manager
+}
