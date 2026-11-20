@@ -13,7 +13,7 @@
         <PartOf>system.installer</PartOf>
         <Summary>kedi-installer is the calamares for Kedi GNU/Linux</Summary>
         <Description>kedi-installer contains the Calamares settings, branding and live-session permissions for the Kedi GNU/Linux live ISO. Calamares removes it after installing.</Description>
-        <Archive sha1sum="36a24fe449aee6c183ae1b37c484cc68371d8566" type="targz">https://repo.kedilinux.org/src/kedi-installer-7.tar.gz</Archive>
+        <Archive sha1sum="012d9fbfd82444fc47358fcd6219a48c0a1b3797" type="targz">https://repo.kedilinux.org/src/kedi-installer-8.tar.gz</Archive>
     </Source>
     <Package>
         <Name>kedi-installer</Name>
@@ -30,6 +30,13 @@
         </Files>
     </Package>
     <History>
+        <Update release="8">
+            <Date>2026-11-21</Date>
+            <Version>8</Version>
+            <Comment>Fix branding.desc issue</Comment>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Update>
         <Update release="7">
             <Date>2026-11-17</Date>
             <Version>7</Version>
