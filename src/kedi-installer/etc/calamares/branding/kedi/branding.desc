@@ -123,10 +123,10 @@ navigation: widget
 strings:
     productName:         Kedi GNU/Linux
     shortProductName:    Kedi
-    version:             2026.11.15
-    shortVersion:        2026.11.15
-    versionedName:       Kedi GNU/Linux 2026.11.15
-    shortVersionedName:  Kedi GNU/Linux 2026.11.15
+    version:             1.0.0
+    shortVersion:        1.0.0
+    versionedName:       Kedi GNU/Linux 1.0.0
+    shortVersionedName:  Kedi GNU/Linux 1.0.0
     bootloaderEntryName: Kedi
     productUrl:          https://kedilinux.org/
     supportUrl:          https://kedilinux.org/wiki
