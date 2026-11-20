@@ -1,0 +1,12 @@
+diff -Nuar a/src/modules/initcpiocfg/main.py b/src/modules/initcpiocfg/main.py
+--- a/src/modules/initcpiocfg/main.py	2023-04-24 23:33:41.000000000 +0300
++++ b/src/modules/initcpiocfg/main.py	2023-10-29 17:18:07.247748772 +0300
+@@ -215,8 +215,6 @@
+
+     if uses_btrfs:
+         modules.append("crc32c-intel" if cpuinfo().is_intel else "crc32c")
+-    else:
+-        hooks.append("fsck")
+
+     return (hooks, modules, files)
+

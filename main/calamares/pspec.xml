@@ -1,0 +1,308 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>calamares</Name>
+        <Homepage>https://calamares.io/</Homepage>
+        <Packager>
+            <Name>Ergün Salman</Name>
+            <Email>Poyraz76@pisilinux.org</Email>
+        </Packager>
+        <License>LGPLv2</License>
+        <Summary>A distribution independent installer framework</Summary>
+        <Description>Calamares is a distribution-independent system installer, with an advanced partitioning feature for both manual and automated partitioning operations.</Description>
+        <Archive sha1sum="3ad270550be27a447ee9c9fff61a580ec526783a" type="targz">https://codeberg.org/Calamares/calamares/releases/download/v3.4.2/calamares-3.4.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gettext-devel</Dependency>
+            <Dependency>yaml-cpp</Dependency>
+            <Dependency versionFrom="1.83.0">boost-devel</Dependency>
+            <Dependency versionFrom="1.83.0">boost-python3</Dependency>
+            <Dependency>ki18n-devel</Dependency>
+            <Dependency>solid-devel</Dependency>
+            <Dependency>parted-devel</Dependency>
+            <Dependency>qt6-linguist</Dependency>
+            <Dependency>qt6-svg-devel</Dependency>
+            <Dependency>udisks2-devel</Dependency>
+            <Dependency>libyaml-devel</Dependency>
+            <Dependency>python3-devel</Dependency>
+            <Dependency>kconfig-devel</Dependency>
+            <Dependency>qt6-base-devel</Dependency>
+            <Dependency>polkit-qt6-devel</Dependency>
+            <Dependency>qt6-webengine-devel</Dependency>
+            <Dependency>libatasmart-devel</Dependency>
+            <Dependency>kcoreaddons-devel</Dependency>
+            <Dependency>qt6-designer-devel</Dependency>
+            <Dependency>qt6-assistant-devel</Dependency>
+            <Dependency>libutil-linux-devel</Dependency>
+            <Dependency>qt6-declarative-devel</Dependency>
+            <Dependency>libxkbfile-devel</Dependency>
+            <Dependency>e2fsprogs-devel</Dependency>
+            <Dependency>squashfs-tools</Dependency>
+            <Dependency>efibootmgr-devel</Dependency>
+            <Dependency>rsync</Dependency>
+            <Dependency>gptfdisk</Dependency>
+            <Dependency>extra-cmake-modules</Dependency>
+            <Dependency>kpmcore-devel</Dependency>
+            <Dependency>kiconthemes-devel</Dependency>
+            <Dependency>kio-devel</Dependency>
+            <Dependency>kservice-devel</Dependency>
+            <Dependency>kconfig-devel</Dependency>
+            <Dependency>kparts-devel</Dependency>
+            <Dependency>kcrash-devel</Dependency>
+            <Dependency>kcompletion-devel</Dependency>
+            <Dependency>kbookmarks-devel</Dependency>
+            <Dependency>kwidgetsaddons-devel</Dependency>
+            <Dependency>libplasma-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">pisi-ayar.patch</Patch>
+            <Patch level="1">pisi_set_hostname2.patch</Patch>
+<!--             <Patch level="1">no_fsck_and_pymouth3.patch</Patch> -->
+      </Patches>
+    </Source>
+    
+    <Package>
+        <Name>Calamares</Name>
+        <RuntimeDependencies>
+            <Dependency>libgcc</Dependency>
+            <Dependency>boost</Dependency>
+            <Dependency>boost-python3</Dependency>
+            <Dependency>python3</Dependency>
+            <Dependency>kcrash</Dependency>
+            <Dependency>parted</Dependency>
+            <Dependency>solid</Dependency>
+            <Dependency>ki18n</Dependency>
+            <Dependency>rsync</Dependency>
+            <Dependency>kconfig</Dependency>
+            <Dependency>kcoreaddons</Dependency>
+            <Dependency>qt6-svg</Dependency>
+            <Dependency>libatasmart</Dependency>
+            <Dependency>qt6-declarative</Dependency>
+            <Dependency>rsync</Dependency>
+            <Dependency>ntfs-3g</Dependency>
+            <Dependency>qt6-base</Dependency>
+            <Dependency>gptfdisk</Dependency>
+            <Dependency>e2fsprogs</Dependency>
+            <Dependency>dmidecode</Dependency>
+            <Dependency>efibootmgr</Dependency>
+            <Dependency>libxkbfile</Dependency>
+            <Dependency>dosfstools</Dependency>
+            <Dependency>libutil-linux</Dependency>
+            <Dependency>util-linux</Dependency>
+            <Dependency>kpmcore</Dependency>
+            <Dependency>partitionmanager</Dependency>
+            <Dependency>qt6-webengine</Dependency>
+            <Dependency>kiconthemes</Dependency>
+            <Dependency>kio</Dependency>
+            <Dependency>kservice</Dependency>
+            <Dependency>kconfig</Dependency>
+            <Dependency>kparts</Dependency>
+            <Dependency>kpackage</Dependency>
+            <Dependency>calamares-theme-pisilinux</Dependency>
+            <Dependency>icu4c</Dependency>
+            <Dependency>kauth</Dependency>
+            <Dependency>libX11</Dependency>
+            <Dependency>sonnet</Dependency>
+            <Dependency>kcodecs</Dependency>
+            <Dependency>kxmlgui</Dependency>
+            <Dependency>yaml-cpp</Dependency>
+            <Dependency>kcompletion</Dependency>
+            <Dependency>kjobwidgets</Dependency>
+            <Dependency>ktextwidgets</Dependency>
+            <Dependency>libpwquality</Dependency>
+            <Dependency>qt6-location</Dependency>
+            <Dependency>kwindowsystem</Dependency>
+            <Dependency>kconfigwidgets</Dependency>
+            <Dependency>kwidgetsaddons</Dependency>
+            <Dependency>qt6-webchannel</Dependency>
+            <Dependency>libplasma</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/*</Path>
+            <Path fileType="library">/usr/lib/calamares/</Path>
+            <Path fileType="data">/usr/include/libcalamares/*</Path>
+            <Path fileType="library">/usr/lib/cmake/Calamares/</Path>
+            <Path fileType="library">/usr/lib/calamares/modules/*</Path>
+            <Path fileType="library">/usr/libexec/</Path>
+            <Path fileType="library">/etc/locale.conf</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/calamares.desktop">calamares.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/locale.conf">locale.conf</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/calamares/modules/bootloader.conf">bootloader.conf</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/calamares/modules/unpackfs.conf">unpackfs.conf</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/calamares/modules/grub.conf">grub.conf</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/calamares/modules/grubconf.conf">grubconf.conf</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/calamares/modules/packages.conf">packages.conf</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/calamares/modules/users.conf">users.conf</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/calamares/settings.conf">settings.conf</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/calamares/branding/default/branding.desc">branding.desc</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+    
+    <History>
+        <Update release="24">
+            <Date>2026-11-20</Date>
+            <Version>3.4.2</Version>
+            <Comment>Rebuild</Comment>
+            <Name>Lemi Sander</Name>
+            <Email>kedilinux@tuta.com</Email>
+        </Update>
+        <Update release="23">
+            <Date>2026-04-20</Date>
+            <Version>3.4.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Pisi Linux Community</Name>
+            <Email>admin@pisilinux.org</Email>
+        </Update>
+        <Update release="22">
+            <Date>2026-04-16</Date>
+            <Version>3.3.8</Version>
+            <Comment>Rebuild.</Comment>
+            <Name>Pisi Linux Community</Name>
+            <Email>admin@pisilinux.org</Email>
+        </Update>
+        <Update release="20">
+            <Date>2023-10-29</Date>
+            <Version>3.2.62</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="19">
+            <Date>2021-10-30</Date>
+            <Version>3.2.39.3</Version>
+            <Comment>Rebuild boost.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="18">
+            <Date>2021-07-08</Date>
+            <Version>3.2.39.3</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="17">
+            <Date>2021-03-27</Date>
+            <Version>3.2.32.1</Version>
+            <Comment>Rebuild.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+         <Update release="16">
+            <Date>2020-04-06</Date>
+            <Version>3.2.32.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="15">
+            <Date>2020-04-06</Date>
+            <Version>3.2.21</Version>
+            <Comment>Version bump</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="14">
+            <Date>2020-03-21</Date>
+            <Version>3.2.20</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="13">
+            <Date>2018-12-27</Date>
+            <Version>3.2.0</Version>
+            <Comment>Rebuild.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="12">
+            <Date>2018-11-12</Date>
+            <Version>3.2.0</Version>
+            <Comment>Rebuild.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="11">
+            <Date>2018-10-14</Date>
+            <Version>3.2.0</Version>
+            <Comment>Rebuild.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="10">
+            <Date>2018-03-24</Date>
+            <Version>3.2.0</Version>
+            <Comment>Rebuild.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="9">
+            <Date>2018-03-22</Date>
+            <Version>3.2.0</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="8">
+            <Date>2017-12-27</Date>
+            <Version>3.1.11</Version>
+            <Comment>Version Bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="7">
+            <Date>2017-12-19</Date>
+            <Version>3.1.10</Version>
+            <Comment>Version Bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="6">
+            <Date>2017-12-07</Date>
+            <Version>3.1.7</Version>
+            <Comment>Rebuild</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2017-11-15</Date>
+            <Version>3.1.7</Version>
+            <Comment>Version Bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2016-12-13</Date>
+            <Version>2.4.83</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Ergün Salman</Name>
+            <Email>Poyraz76@pisilinux.org</Email>
+        </Update>
+        <Update release="3">
+            <Date>2016-12-13</Date>
+            <Version>2.4.80</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Ergün Salman</Name>
+            <Email>Poyraz76@pisilinux.org</Email>
+        </Update>
+        <Update release="2">
+            <Date>2016-06-08</Date>
+            <Version>2.2</Version>
+            <Comment>Release Bump</Comment>
+            <Name>Pisi Linux Community</Name>
+            <Email>admin@pisilinux.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2016-06-03</Date>
+            <Version>2.2</Version>
+            <Comment>First Release.</Comment>
+            <Name>Ergün Salman</Name>
+            <Email>Poyraz76@pisilinux.org</Email>
+        </Update>
+    </History>
+</PISI>
