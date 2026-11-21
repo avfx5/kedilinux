@@ -1,0 +1,289 @@
+name = "Kedi GNU/Linux"
+version = "1.0.0"
+volume_label = "KEDI_LIVE"
+hostname = "kedi"
+live_user = "kedi"
+live_password = ""
+
+components = []
+packages = [
+    "acl", "attr", "audit", "baselayout", "bash", "bc", "biosdevname", "busybox", "bzip2",
+    "ca-certificates", "comar", "comar-api", "coreutils", "cpio", "cracklib", "curl", "db", "dbus",
+    "dbus-glib", "dbus-python", "diffutils", "duktape", "e2fsprogs", "efivar", "eudev",
+    "expat", "file", "findutils", "fuse", "fuse3", "gawk", "gdbm", "gettext", "glib2", "glibc",
+    "gperf", "gperftools", "grep", "groff", "gzip", "help2man", "json-c", "kbd", "keyutils", "kmod",
+    "less", "leveldb", "libX11", "libXau", "libXdmcp", "libaio", "libbsd", "libcap", "libcap-ng",
+    "libffi", "libgcc", "libgcrypt", "libgpg-error", "libidn", "git", "fastfetch", "htop", "wget",
+    "libidn2", "libkmod", "libmd", "libnghttp2", "libnsl", "libpcre", "libpipeline", "p7zip", "unrar",
+    "libquadmath", "libssh2", "libtool-ltdl", "libunistring", "libusb", "libusb-compat", "libuser",
+    "libutil-linux", "libxcb", "libxcrypt", "libxml2", "lsb-release", "lz4", "lzo", "mailcap",
+    "man-db", "man-pages", "mdadm-static", "mingetty", "miscfiles", "mit-kerberos", "ncompress",
+    "ncurses", "net-tools", "nettle", "nspr", "nss-mdns", "openssl", "pam", "pciutils", "vlc",
+    "pcmciautils", "perl", "perl-Locale-gettext", "piksemel", "pisi", "pisilinux-python", "plyvel",
+    "polkit", "popt", "procps", "psmisc", "pycurl", "pypolkit", "python", "python-audit",
+    "python-psutil", "python-pyliblzma", "python-six", "python3-piksemel", "readline",
+    "run-parts", "sed", "shadow", "snappy", "spidermonkey", "sqlite", "sysfsutils",
+    "sysvinit-tools", "tar", "tcp-wrappers", "texinfo", "time", "timezone", "unzip", "urlgrabber",
+    "usbutils", "util-linux", "v86d", "which", "wireless-tools", "xz", "zip", "zlib",
+    "zstd", "kernel", "mkinitcpio", "grub2", "openrc", "kedi-base", "kedi-keyring", "udev-openrc",
+    "kmod-openrc", "dbus-openrc", "syslogd-openrc", "crond-openrc",
+    "envupdate", "systemd-tmpfiles", "iw", "kedi-installer", "kedi-desktop-lxqt", "firefox",
+    "sudo", "dosfstools", "efibootmgr", "nano", "brightnessctl"
+]
+
+excluded_packages = []
+work_dir = "/build/pisi-iso-creator"
+squashfs_compression = "xz"
+kernel_cmdline = "console=tty0"
+live_initramfs = true
+output_iso = "/build/kedilinux-lxqt-1.0.0-x86_64.iso"
+
+post_install_script = '''
+set -e
+sed -i '/^\(ID\|ID_LIKE\|VERSION_CODENAME\|PRETTY_NAME\|HOME_URL\|SUPPORT_URL\|BUG_REPORT_URL\|DOCUMENTATION_URL\)=/d' /etc/os-release
+cat >> /etc/os-release <<'EOF'
+ID=kedi
+ID_LIKE=pisilinux
+PRETTY_NAME="Kedi GNU/Linux"
+HOME_URL="https://kedilinux.org/"
+DOCUMENTATION_URL="https://kedilinux.org/wiki"
+BUG_REPORT_URL="https://github.com/kedilinux/kedilinux/issues"
+EOF
+cat > /etc/lsb-release <<'EOF'
+DISTRIB_ID="Kedi GNU/Linux"
+DISTRIB_RELEASE="1.0.0"
+DISTRIB_DESCRIPTION="Kedi GNU/Linux 1.0.0"
+EOF
+grep -q '^en_US.UTF-8 UTF-8' /etc/locale.gen || echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen
+locale-gen
+cat > /etc/env.d/03locale <<'EOF'
+LANG="en_US.UTF-8"
+EOF
+update-environment
+kver=$(ls /lib/modules | sort -V | tail -n 1)
+depmod -a "$kver"
+for s in devfs dmesg sysfs cgroups kmod-static-nodes systemd-tmpfiles-setup-dev udev udev-trigger; do
+    rc-update add "$s" sysinitname = "Kedi GNU/Linux"
+version = "1.0.0"
+volume_label = "KEDI_LIVE"
+hostname = "kedi"
+live_user = "kedi"
+live_password = ""
+
+components = []
+packages = [
+    "acl", "attr", "audit", "baselayout", "bash", "bc", "biosdevname", "busybox", "bzip2",
+    "ca-certificates", "comar", "comar-api", "coreutils", "cpio", "cracklib", "curl", "db", "dbus",
+    "dbus-glib", "dbus-python", "diffutils", "duktape", "e2fsprogs", "efivar", "eudev",
+    "expat", "file", "findutils", "fuse", "fuse3", "gawk", "gdbm", "gettext", "glib2", "glibc",
+    "gperf", "gperftools", "grep", "groff", "gzip", "help2man", "json-c", "kbd", "keyutils", "kmod",
+    "less", "leveldb", "libX11", "libXau", "libXdmcp", "libaio", "libbsd", "libcap", "libcap-ng",
+    "libffi", "libgcc", "libgcrypt", "libgpg-error", "libidn", "git", "fastfetch", "htop", "wget",
+    "libidn2", "libkmod", "libmd", "libnghttp2", "libnsl", "libpcre", "libpipeline", "p7zip", "unrar",
+    "libquadmath", "libssh2", "libtool-ltdl", "libunistring", "libusb", "libusb-compat", "libuser",
+    "libutil-linux", "libxcb", "libxcrypt", "libxml2", "lsb-release", "lz4", "lzo", "mailcap",
+    "man-db", "man-pages", "mdadm-static", "mingetty", "miscfiles", "mit-kerberos", "ncompress",
+    "ncurses", "net-tools", "nettle", "nspr", "nss-mdns", "openssl", "pam", "pciutils", "vlc",
+    "pcmciautils", "perl", "perl-Locale-gettext", "piksemel", "pisi", "pisilinux-python", "plyvel",
+    "polkit", "popt", "procps", "psmisc", "pycurl", "pypolkit", "python", "python-audit",
+    "python-psutil", "python-pyliblzma", "python-six", "python3-piksemel", "readline",
+    "run-parts", "sed", "shadow", "snappy", "spidermonkey", "sqlite", "sysfsutils",
+    "sysvinit-tools", "tar", "tcp-wrappers", "texinfo", "time", "timezone", "unzip", "urlgrabber",
+    "usbutils", "util-linux", "v86d", "which", "wireless-tools", "xz", "zip", "zlib",
+    "zstd", "kernel", "mkinitcpio", "grub2", "openrc", "kedi-base", "kedi-keyring", "udev-openrc",
+    "kmod-openrc", "dbus-openrc", "syslogd-openrc", "crond-openrc",
+    "envupdate", "systemd-tmpfiles", "iw", "kedi-installer", "kedi-desktop-lxqt", "firefox",
+    "sudo", "dosfstools", "efibootmgr", "nano", "brightnessctl"
+]
+
+excluded_packages = []
+work_dir = "/build/pisi-iso-creator"
+squashfs_compression = "xz"
+kernel_cmdline = "console=tty0"
+live_initramfs = true
+output_iso = "/build/kedilinux-lxqt-1.0.0-x86_64.iso"
+
+post_install_script = '''
+set -e
+sed -i '/^\(ID\|ID_LIKE\|VERSION_CODENAME\|PRETTY_NAME\|HOME_URL\|SUPPORT_URL\|BUG_REPORT_URL\|DOCUMENTATION_URL\)=/d' /etc/os-release
+cat >> /etc/os-release <<'EOF'
+ID=kedi
+ID_LIKE=pisilinux
+PRETTY_NAME="Kedi GNU/Linux"
+HOME_URL="https://kedilinux.org/"
+DOCUMENTATION_URL="https://kedilinux.org/wiki"
+BUG_REPORT_URL="https://github.com/kedilinux/kedilinux/issues"
+EOF
+cat > /etc/lsb-release <<'EOF'
+DISTRIB_ID="Kedi GNU/Linux"
+DISTRIB_RELEASE="1.0.0"
+DISTRIB_DESCRIPTION="Kedi GNU/Linux 1.0.0"
+EOF
+grep -q '^en_US.UTF-8 UTF-8' /etc/locale.gen || echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen
+locale-gen
+cat > /etc/env.d/03locale <<'EOF'
+LANG="en_US.UTF-8"
+EOF
+update-environment
+kver=$(ls /lib/modules | sort -V | tail -n 1)
+depmod -a "$kver"
+for s in devfs dmesg sysfs cgroups kmod-static-nodes systemd-tmpfiles-setup-dev udev udev-trigger; do
+    rc-update add "$s" sysinit
+done
+for s in procfs root localmount fsck swap hostname hostname-hosts osclock modules sysctl bootmisc loopback consolefont keymaps save-keymaps termencoding save-termencoding seedrng systemd-tmpfiles-setup syslogd envupdate elogind; do
+    rc-update add "$s" boot
+done
+for s in dbus dhcpcd iwd crond local agetty.tty1 agetty.tty2; do
+    rc-update add "$s" default
+done
+for s in killprocs mount-ro savecache; do
+    rc-update add "$s" shutdown
+done
+sed -i 's/^greeter-session=.*/greeter-session=lightdm-gtk-greeter/' /etc/lightdm/lightdm.conf
+gtk-update-icon-cache -f /usr/share/icons/hicolor
+install -Dm755 /usr/share/applications/kedi-install.desktop /home/kedi/Desktop/kedi-install.desktop
+chown -R kedi:kedi /home/kedi
+install -d -m 1777 /var/spool/mail
+sed -i '/^tmpfs[[:space:]]\+\/[[:space:]]/d' /etc/fstab
+sed -i -e 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3"/' -e 's/^GRUB_DISTRIBUTOR=.*/GRUB_DISTRIBUTOR="Kedi"/' -e 's/^GRUB_THEME=/#GRUB_THEME=/' /etc/default/grub
+cat > /etc/issue <<'EOF'
+Welcome to \S{PRETTY_NAME}!name = "Kedi GNU/Linux"
+version = "1.0.0"
+volume_label = "KEDI_LIVE"
+hostname = "kedi"
+live_user = "kedi"
+live_password = ""
+
+components = []
+packages = [
+    "acl", "attr", "audit", "baselayout", "bash", "bc", "biosdevname", "busybox", "bzip2",
+    "ca-certificates", "comar", "comar-api", "coreutils", "cpio", "cracklib", "curl", "db", "dbus",
+    "dbus-glib", "dbus-python", "diffutils", "duktape", "e2fsprogs", "efivar", "eudev",
+    "expat", "file", "findutils", "fuse", "fuse3", "gawk", "gdbm", "gettext", "glib2", "glibc",
+    "gperf", "gperftools", "grep", "groff", "gzip", "help2man", "json-c", "kbd", "keyutils", "kmod",
+    "less", "leveldb", "libX11", "libXau", "libXdmcp", "libaio", "libbsd", "libcap", "libcap-ng",
+    "libffi", "libgcc", "libgcrypt", "libgpg-error", "libidn", "git", "fastfetch", "htop", "wget",
+    "libidn2", "libkmod", "libmd", "libnghttp2", "libnsl", "libpcre", "libpipeline", "p7zip", "unrar",
+    "libquadmath", "libssh2", "libtool-ltdl", "libunistring", "libusb", "libusb-compat", "libuser",
+    "libutil-linux", "libxcb", "libxcrypt", "libxml2", "lsb-release", "lz4", "lzo", "mailcap",
+    "man-db", "man-pages", "mdadm-static", "mingetty", "miscfiles", "mit-kerberos", "ncompress",
+    "ncurses", "net-tools", "nettle", "nspr", "nss-mdns", "openssl", "pam", "pciutils", "vlc",
+    "pcmciautils", "perl", "perl-Locale-gettext", "piksemel", "pisi", "pisilinux-python", "plyvel",
+    "polkit", "popt", "procps", "psmisc", "pycurl", "pypolkit", "python", "python-audit",
+    "python-psutil", "python-pyliblzma", "python-six", "python3-piksemel", "readline",
+    "run-parts", "sed", "shadow", "snappy", "spidermonkey", "sqlite", "sysfsutils",
+    "sysvinit-tools", "tar", "tcp-wrappers", "texinfo", "time", "timezone", "unzip", "urlgrabber",
+    "usbutils", "util-linux", "v86d", "which", "wireless-tools", "xz", "zip", "zlib",
+    "zstd", "kernel", "mkinitcpio", "grub2", "openrc", "kedi-base", "kedi-keyring", "udev-openrc",
+    "kmod-openrc", "dbus-openrc", "syslogd-openrc", "crond-openrc",
+    "envupdate", "systemd-tmpfiles", "iw", "kedi-installer", "kedi-desktop-lxqt", "firefox",
+    "sudo", "dosfstools", "efibootmgr", "nano", "brightnessctl"
+]
+
+excluded_packages = []
+work_dir = "/build/pisi-iso-creator"
+squashfs_compression = "xz"
+kernel_cmdline = "console=tty0"
+live_initramfs = true
+output_iso = "/build/kedilinux-lxqt-1.0.0-x86_64.iso"
+
+post_install_script = '''
+set -e
+sed -i '/^\(ID\|ID_LIKE\|VERSION_CODENAME\|PRETTY_NAME\|HOME_URL\|SUPPORT_URL\|BUG_REPORT_URL\|DOCUMENTATION_URL\)=/d' /etc/os-release
+cat >> /etc/os-release <<'EOF'
+ID=kedi
+ID_LIKE=pisilinux
+PRETTY_NAME="Kedi GNU/Linux"
+HOME_URL="https://kedilinux.org/"
+DOCUMENTATION_URL="https://kedilinux.org/wiki"
+BUG_REPORT_URL="https://github.com/kedilinux/kedilinux/issues"
+EOF
+cat > /etc/lsb-release <<'EOF'
+DISTRIB_ID="Kedi GNU/Linux"
+DISTRIB_RELEASE="1.0.0"
+DISTRIB_DESCRIPTION="Kedi GNU/Linux 1.0.0"
+EOF
+grep -q '^en_US.UTF-8 UTF-8' /etc/locale.gen || echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen
+locale-gen
+cat > /etc/env.d/03locale <<'EOF'
+LANG="en_US.UTF-8"
+EOF
+update-environment
+kver=$(ls /lib/modules | sort -V | tail -n 1)
+depmod -a "$kver"
+for s in devfs dmesg sysfs cgroups kmod-static-nodes systemd-tmpfiles-setup-dev udev udev-trigger; do
+    rc-update add "$s" sysinit
+done
+for s in procfs root localmount fsck swap hostname hostname-hosts osclock modules sysctl bootmisc loopback consolefont keymaps save-keymaps termencoding save-termencoding seedrng systemd-tmpfiles-setup syslogd envupdate elogind; do
+    rc-update add "$s" boot
+done
+for s in dbus dhcpcd iwd crond local agetty.tty1 agetty.tty2; do
+    rc-update add "$s" default
+done
+for s in killprocs mount-ro savecache; do
+    rc-update add "$s" shutdown
+done
+sed -i 's/^greeter-session=.*/greeter-session=lightdm-gtk-greeter/' /etc/lightdm/lightdm.conf
+gtk-update-icon-cache -f /usr/share/icons/hicolor
+install -Dm755 /usr/share/applications/kedi-install.desktop /home/kedi/Desktop/kedi-install.desktop
+chown -R kedi:kedi /home/kedi
+install -d -m 1777 /var/spool/mail
+sed -i '/^tmpfs[[:space:]]\+\/[[:space:]]/d' /etc/fstab
+sed -i -e 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3"/' -e 's/^GRUB_DISTRIBUTOR=.*/GRUB_DISTRIBUTOR="Kedi"/' -e 's/^GRUB_THEME=/#GRUB_THEME=/' /etc/default/grub
+cat > /etc/issue <<'EOF'
+Welcome to \S{PRETTY_NAME}!
+
+  ^ ^
+ =   =
+
+\r (\l)
+
+EOF
+'''
+
+[[repositories]]
+name = "kedi"
+url = "https://repo.kedilinux.org/1/pisi-index.xml.xz"
+
+  ^ ^
+ =   =
+
+\r (\l)
+
+EOF
+'''
+
+[[repositories]]
+name = "kedi"
+url = "https://repo.kedilinux.org/1/pisi-index.xml.xz"
+done
+for s in procfs root localmount fsck swap hostname hostname-hosts osclock modules sysctl bootmisc loopback consolefont keymaps save-keymaps termencoding save-termencoding seedrng systemd-tmpfiles-setup syslogd envupdate elogind; do
+    rc-update add "$s" boot
+done
+for s in dbus dhcpcd iwd crond local agetty.tty1 agetty.tty2; do
+    rc-update add "$s" default
+done
+for s in killprocs mount-ro savecache; do
+    rc-update add "$s" shutdown
+done
+sed -i 's/^greeter-session=.*/greeter-session=lightdm-gtk-greeter/' /etc/lightdm/lightdm.conf
+gtk-update-icon-cache -f /usr/share/icons/hicolor
+install -Dm755 /usr/share/applications/kedi-install.desktop /home/kedi/Desktop/kedi-install.desktop
+chown -R kedi:kedi /home/kedi
+install -d -m 1777 /var/spool/mail
+sed -i '/^tmpfs[[:space:]]\+\/[[:space:]]/d' /etc/fstab
+sed -i -e 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3"/' -e 's/^GRUB_DISTRIBUTOR=.*/GRUB_DISTRIBUTOR="Kedi"/' -e 's/^GRUB_THEME=/#GRUB_THEME=/' /etc/default/grub
+cat > /etc/issue <<'EOF'
+Welcome to \S{PRETTY_NAME}!
+
+  ^ ^
+ =   =
+
+\r (\l)
+
+EOF
+'''
+
+[[repositories]]
+name = "kedi"
+url = "https://repo.kedilinux.org/1/pisi-index.xml.xz"
