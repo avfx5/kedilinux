@@ -1,0 +1,53 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+# Licensed under the GNU General Public License, version 3.
+# See the file http://www.gnu.org/licenses/gpl.txt
+
+from pisi.actionsapi import autotools
+from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
+from pisi.actionsapi import mesontools
+from pisi.actionsapi import get
+
+def setup():
+    shelltools.export("CFLAGS", "%s -Wformat" % get.CFLAGS())
+    mesontools.configure("-Dman=disabled \
+                          -Dgstreamer=enabled \
+                          -Ddocs=enabled \
+                          -Dlibsystemd=disabled \
+                          -Dbluez5=enabled \
+                          -Dpipewire-alsa=enabled \
+                          -Dcompress-offload=disabled \
+                          -Djack=disabled \
+                          -Dudevrulesdir=/lib/udev/rules.d \
+                          -Dsystemd-user-service=disabled \
+                          -Dsession-managers=[] \
+                          -Dlibcamera=disabled \
+                          -Dbluez5-codec-ldac-dec=disabled \
+                          -Dbluez5-plc-spandsp=disabled \
+                          -Donnxruntime=disabled \
+                          -Dbluez5-plc-spandsp=disabled \
+                          -Dsdl2=disabled \
+                          -Dbluez5-codec-lc3plus=disabled \
+                          -Dbluez5-codec-lc3=disabled \
+                          -Dbluez5-codec-ldac=disabled \
+                          -Dsnap=disabled \
+                          -Dlogind=enabled \
+                          -Dlogind-provider=libelogind \
+                          ")
+
+def build():
+    mesontools.build()
+
+def install():
+    mesontools.install()
+    
+    pisitools.dosym("/usr/share/alsa/alsa.conf.d/50-pipewire.conf", "/etc/alsa/conf.d/50-pipewire.conf")
+
+    #tg_owt
+    pisitools.dosym("/usr/include/pipewire-0.3/pipewire", "/usr/include/pipewire")
+    pisitools.dosym("/usr/include/spa-0.2/spa", "/usr/include/spa")
+
+    #shelltools.cd("..")
+    pisitools.dodoc("LICENSE", "COPYING", "NEWS", "README*")

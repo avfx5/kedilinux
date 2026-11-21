@@ -1,0 +1,410 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>pipewire</Name>
+        <Homepage>https://pipewire.org/</Homepage>
+        <Packager>
+            <Name>PisiLinux Community</Name>
+            <Email>admins@pisilinux.org</Email>
+        </Packager>
+        <License>LGPLv2.1</License>
+        <Icon>pipewire</Icon>
+        <IsA>library</IsA>
+        <Summary>Low-latency audio/video router and processor</Summary>
+        <Description>PipeWire is a project that aims to greatly improve handling of audio and video under Linux. It provides a low-latency, graph-based processing engine on top of audio and video devices that can be used to support the use cases currently handled by both PulseAudio and JACK.</Description>
+        <Archive sha1sum="c0d92cca3d882b60f2c43fa0e997f0720ff47ee4" type="targz">https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/1.6.11/pipewire-1.6.11.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>git</Dependency>
+            <Dependency>meson</Dependency>
+            <Dependency>doxygen</Dependency>
+            <Dependency>valgrind</Dependency>
+            <Dependency>sbc-devel</Dependency>
+            <Dependency>dbus-devel</Dependency>
+            <Dependency>avahi-devel</Dependency>
+            <Dependency>avahi-libs</Dependency>
+            <Dependency>glib2-devel</Dependency>
+            <Dependency>eudev-devel</Dependency>
+            <Dependency>libopus-devel</Dependency>
+            <Dependency>libusb-devel</Dependency>
+            <Dependency>openssl-devel</Dependency>
+            <Dependency>vulkan-devel</Dependency>
+            <Dependency>elogind-devel</Dependency>
+            <Dependency>vulkan-headers</Dependency>
+<!--             <Dependency>ffmpeg-devel</Dependency> -->
+            <Dependency>ncurses-devel</Dependency>
+            <Dependency>libsdl2-devel</Dependency>
+            <Dependency>readline-devel</Dependency>
+            <Dependency>alsa-lib-devel</Dependency>
+            <Dependency>gstreamer-devel</Dependency>
+            <Dependency>libfdk-aac-devel</Dependency>
+            <Dependency>libsndfile-devel</Dependency>
+<!--             <Dependency>wireplumber-devel</Dependency> -->
+            <Dependency>libcanberra-devel</Dependency>
+            <Dependency>bluez-libs-devel</Dependency>
+            <Dependency>pulseaudio-libs-devel</Dependency>
+            <Dependency>gst-plugins-base-devel</Dependency>
+            <Dependency>jack-audio-connection-kit-devel</Dependency>
+            <Dependency>webrtc-audio-processing-1-devel</Dependency>
+        </BuildDependencies>
+        <!--
+        <Patches>
+            <Patch>pipewire.patch</Patch>
+            <Patch level="1">pipewire.patch</Patch>
+        </Patches>
+        -->
+    </Source>
+
+    <Package>
+        <Name>pipewire</Name>
+        <RuntimeDependencies>
+            <Dependency>sbc</Dependency>
+            <Dependency>dbus</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>eudev</Dependency>
+            <Dependency>vulkan</Dependency>
+<!--             <Dependency>ffmpeg</Dependency> -->
+            <Dependency>libX11</Dependency>
+            <Dependency>libusb</Dependency>
+            <Dependency>elogind</Dependency>
+            <Dependency>openssl</Dependency>
+            <Dependency>libopus</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>gstreamer</Dependency>
+            <Dependency>libXfixes</Dependency>
+            <Dependency>libfdk-aac</Dependency>
+            <Dependency>libsndfile</Dependency>
+<!--             <Dependency>wireplumber</Dependency> -->
+            <Dependency>libcanberra</Dependency>
+            <Dependency>avahi-libs</Dependency>
+            <Dependency>bluez-libs</Dependency>
+            <Dependency>pulseaudio-libs</Dependency>
+            <Dependency>gst-plugins-base</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>webrtc-audio-processing-1</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="config">/lib/udev/rules.d/90-pipewire-alsa.rules</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>pipewire-devel</Name>
+        <Summary>Development files for pipewire</Summary>
+        <RuntimeDependencies>
+            <Dependency>glib2-devel</Dependency>
+            <Dependency release="current">pipewire</Dependency>
+<!--             <Dependency>wireplumber-devel</Dependency> -->
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib/pkgconfig</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>pipewire-docs</Name>
+        <Summary>Development files for pipewire</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">pipewire</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/share/doc/pipewire/html</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="42">
+            <Date>2026-11-12</Date>
+            <Version>1.6.11</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Emir Bayram</Name>
+            <Email>rimru01@proton.me</Email>
+        </Update>
+        <Update release="41">
+            <Date>2026-10-22</Date>
+            <Version>1.6.10</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Pisi Linux Community</Name>
+            <Email>admin@pisilinux.org</Email>
+        </Update>
+        <Update release="40">
+            <Date>2026-08-26</Date>
+            <Version>1.6.9</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Emir Bayram</Name>
+            <Email>rimru01@proton.me</Email>
+        </Update>
+        <Update release="39">
+            <Date>2026-07-11</Date>
+            <Version>1.6.8</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Pisi Linux Community</Name>
+            <Email>admin@pisilinux.org</Email>
+        </Update>
+        <Update release="38">
+            <Date>2026-03-11</Date>
+            <Version>1.6.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Pisi Linux Community</Name>
+            <Email>admin@pisilinux.org</Email>
+        </Update>
+        <Update release="37">
+            <Date>2026-01-17</Date>
+            <Version>1.4.10</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Pisi Linux Community</Name>
+            <Email>admin@pisilinux.org</Email>
+        </Update>
+        <Update release="36">
+            <Date>2025-10-12</Date>
+            <Version>1.4.9</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Pisi Linux Community</Name>
+            <Email>admin@pisilinux.org</Email>
+        </Update>
+        <Update release="35">
+            <Date>2025-05-19</Date>
+            <Version>1.4.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Pisi Linux Community</Name>
+            <Email>admin@pisilinux.org</Email>
+        </Update>
+        <Update release="33">
+            <Date>2025-04-06</Date>
+            <Version>1.4.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Pisi Linux Community</Name>
+            <Email>admin@pisilinux.org</Email>
+        </Update>
+        <Update release="32">
+            <Date>2024-12-17</Date>
+            <Version>1.2.6</Version>
+            <Comment>Rebuild.</Comment>
+            <Name>Pisi Linux Community</Name>
+            <Email>admin@pisilinux.org</Email>
+        </Update>
+        <Update release="31">
+            <Date>2024-10-25</Date>
+            <Version>1.2.6</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Pisi Linux Community</Name>
+            <Email>admin@pisilinux.org</Email>
+        </Update>
+        <Update release="30">
+            <Date>2024-09-28</Date>
+            <Version>1.2.5</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Pisi Linux Community</Name>
+            <Email>admin@pisilinux.org</Email>
+        </Update>
+        <Update release="29">
+            <Date>2024-08-10</Date>
+            <Version>1.2.2</Version>
+            <Comment>Rebuild.</Comment>
+            <Name>Pisi Linux Community</Name>
+            <Email>admin@pisilinux.org</Email>
+        </Update>
+        <Update release="28">
+            <Date>2024-08-03</Date>
+            <Version>1.2.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Pisi Linux Community</Name>
+            <Email>admin@pisilinux.org</Email>
+        </Update>
+        <Update release="27">
+            <Date>2024-07-27</Date>
+            <Version>1.2.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Pisi Linux Community</Name>
+            <Email>admin@pisilinux.org</Email>
+        </Update>
+        <Update release="26">
+            <Date>2024-03-13</Date>
+            <Version>1.0.4</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="25">
+            <Date>2024-02-03</Date>
+            <Version>1.0.3</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="24">
+            <Date>2023-12-26</Date>
+            <Version>1.0.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="23">
+            <Date>2023-11-16</Date>
+            <Version>0.3.85</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="22">
+            <Date>2023-10-14</Date>
+            <Version>0.3.82</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="21">
+            <Date>2023-09-20</Date>
+            <Version>0.3.80</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="20">
+            <Date>2023-08-04</Date>
+            <Version>0.3.77</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="19">
+            <Date>2023-07-28</Date>
+            <Version>0.3.76</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="18">
+            <Date>2023-07-26</Date>
+            <Version>0.3.75</Version>
+            <Comment>Rebuild.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="17">
+            <Date>2023-07-22</Date>
+            <Version>0.3.75</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="16">
+            <Date>2023-06-27</Date>
+            <Version>0.3.72</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="15">
+            <Date>2023-01-26</Date>
+            <Version>0.3.65</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="14">
+            <Date>2022-12-16</Date>
+            <Version>0.3.63</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="13">
+            <Date>2022-11-13</Date>
+            <Version>0.3.60</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="12">
+            <Date>2022-10-11</Date>
+            <Version>0.3.59</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="11">
+            <Date>2022-08-06</Date>
+            <Version>0.3.56</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="10">
+            <Date>2022-07-07</Date>
+            <Version>0.3.54</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="9">
+            <Date>2022-04-19</Date>
+            <Version>0.3.50</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="8">
+            <Date>2022-01-12</Date>
+            <Version>0.3.43</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="7">
+            <Date>2021-12-06</Date>
+            <Version>0.3.40</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="6">
+            <Date>2021-09-24</Date>
+            <Version>0.3.37</Version>
+            <Comment>Version bump</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2021-08-31</Date>
+            <Version>0.3.34</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2021-05-01</Date>
+            <Version>0.3.26</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Cinasal</Name>
+            <Email>muscnsl@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2021-01-19</Date>
+            <Version>0.3.19</Version>
+            <Comment>Rebuild</Comment>
+            <Name>PisiLinux Community</Name>
+            <Email>admins@pisilinux.org</Email>
+        </Update>
+        <Update release="2">
+            <Date>2021-01-06</Date>
+            <Version>0.3.19</Version>
+            <Comment>Version bump</Comment>
+            <Name>PisiLinux Community</Name>
+            <Email>admins@pisilinux.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2020-03-30</Date>
+            <Version>0.3.2</Version>
+            <Comment>First release</Comment>
+            <Name>PisiLinux Community</Name>
+            <Email>admins@pisilinux.org</Email>
+        </Update>
+    </History>
+</PISI>
