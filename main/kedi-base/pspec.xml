@@ -17,7 +17,7 @@
     <Package>
         <Name>kedi-base</Name>
         <RuntimeDependencies>
-            <Dependency>systemd-tmpfiles</Dependency>
+            <Dependency>kedilinux-tmpfiles</Dependency>
             <Dependency>kedi-keyring</Dependency>
             <Dependency>openrc</Dependency>
             <Dependency>mkinitcpio-openrc</Dependency>
