@@ -33,6 +33,13 @@
         </Provides>
     </Package>
     <History>
+      <Update release="8">
+          <Date>2026-11-24</Date>
+          <Version>5</Version>
+          <Comment>Replace systemd-tmpfiles with kedilinux tmpfiles service</Comment>
+          <Name>Lemi Sander</Name>
+          <Email>kedilinux@tuta.com</Email>
+      </Update>
       <Update release="7">
           <Date>2026-11-21</Date>
           <Version>5</Version>
