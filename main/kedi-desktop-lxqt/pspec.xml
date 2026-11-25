@@ -66,9 +66,10 @@
             <Path fileType="config">/etc</Path>
             <Path fileType="data">/usr/share</Path>
             <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="config">/usr/lib/firefox/distribution/policies.json</Path>
         </Files>
         <AdditionalFiles>
-	    <AdditionalFile owner="root" permission="0644" target="/usr/lib/firefox/distribution">policies.json</AdditionalFile>
+	    <AdditionalFile owner="root" permission="0644" target="/usr/lib/firefox/distribution/policies.json">policies.json</AdditionalFile>
         </AdditionalFiles>
     </Package>
     <History>
