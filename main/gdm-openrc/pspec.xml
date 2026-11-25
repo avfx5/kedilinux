@@ -12,7 +12,7 @@
         <IsA>service</IsA>
         <Summary>Artix Linux init.d script for OpenRC</Summary>
         <Description>Init.d script required to launch the gdm display manager for OpenRC</Description>
-        <Archive sha1sum="0215d78548e8681b4ac4e05f013ce7a9a1549dd7" type="binary">https://repo.kedilinux.org/init.d/gdm</Archive>
+        <Archive sha1sum="8012103f4716e357cc48c05db9e88dece4b8c510" type="binary">https://repo.kedilinux.org/init.d/gdm</Archive>
     </Source>
     <Package>
         <Name>gdm-openrc</Name>
