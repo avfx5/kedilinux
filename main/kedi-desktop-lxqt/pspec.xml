@@ -67,6 +67,7 @@
             <Path fileType="data">/usr/share</Path>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="config">/usr/lib/firefox/distribution/policies.json</Path>
+            <Path fileType="config">/usr/lib/firefox/browser/defaults/preferences/kedi-firefox.js</Path>
         </Files>
         <AdditionalFiles>
 	    <AdditionalFile owner="root" permission="0644" target="/usr/lib/firefox/distribution/policies.json">policies.json</AdditionalFile>
