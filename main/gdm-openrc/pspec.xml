@@ -2,7 +2,7 @@
 <!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
 <PISI>
     <Source>
-        <Name>lightdm-openrc</Name>
+        <Name>gdm-openrc</Name>
         <Homepage>https://github.com/GNOME/gdm</Homepage>
         <Packager>
             <Name>Lemi Sander</Name>
@@ -27,7 +27,7 @@
     <History>
         <Update release="1">
             <Date>2026-11-26</Date>
-            <Version>51.2</Version>
+            <Version>49.2</Version>
             <Comment>First release, for Kedi Linux</Comment>
             <Name>Lemi Sander</Name>
             <Email>kedilinux@tuta.com</Email>
