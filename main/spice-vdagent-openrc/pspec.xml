@@ -3,7 +3,7 @@
 <PISI>
     <Source>
         <Name>spice-vdagent-openrc</Name>
-        <Homepage>https://github.com/utmapp/vd_agent/<Homepage>
+        <Homepage>https://gitlab.freedesktop.org/spice/linux/vd_agent<Homepage>
         <Packager>
             <Name>Lemi Sander</Name>
             <Email>kedilinux@tuta.com</Email>
@@ -12,7 +12,7 @@
         <IsA>service</IsA>
         <Summary>init.d script for OpenRC</Summary>
         <Description>Init.d script required to launch the spice-vdagent daemon for OpenRC</Description>
-        <Archive sha1sum="97f60c2e2b6149cabed7be80795649d4d1b54d71" type="binary">https://repo.kedilinux.org/init.d/spice-vdagent<Archive>
+        <Archive sha1sum="97f60c2e2b6149cabed7be80795649d4d1b54d71" type="binary">https://repo.kedilinux.org/init.d/spice-vdagent</Archive>
     </Source>
     <Package>
         <Name>spice-vdagent-openrc</Name>
@@ -27,7 +27,7 @@
     <History>
         <Update release="1">
             <Date>2026-11-26</Date>
-            <Version>49.2</Version>
+            <Version>0.21.0</Version>
             <Comment>First release, for Kedi Linux</Comment>
             <Name>Lemi Sander</Name>
             <Email>kedilinux@tuta.com</Email>
