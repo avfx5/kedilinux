@@ -3,7 +3,7 @@
 <PISI>
     <Source>
         <Name>spice-vdagent-openrc</Name>
-        <Homepage>https://gitlab.freedesktop.org/spice/linux/vd_agent<Homepage>
+        <Homepage>https://gitlab.freedesktop.org/spice/linux/vd_agent</Homepage>
         <Packager>
             <Name>Lemi Sander</Name>
             <Email>kedilinux@tuta.com</Email>
